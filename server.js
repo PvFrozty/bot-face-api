@@ -25,29 +25,29 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-const database = {
-			users:[
-				{
-					id:'1',
-					name:'Prahas',
-					email:'prahas@nanobotz.lk',
-					password:'nb1',
-					entries:0,
-					joined: new Date()
-				},
-				{
-					id:'2',
-					name:'Dinuka',
-					email:'dinuka@nanobotz.lk',
-					password:'nb2',
-					entries:0,
-					joined: new Date()
-				}
-			]
-}
+// const database = {
+// 			users:[
+// 				{
+// 					id:'1',
+// 					name:'Prahas',
+// 					email:'prahas@nanobotz.lk',
+// 					password:'nb1',
+// 					entries:0,
+// 					joined: new Date()
+// 				},
+// 				{
+// 					id:'2',
+// 					name:'Dinuka',
+// 					email:'dinuka@nanobotz.lk',
+// 					password:'nb2',
+// 					entries:0,
+// 					joined: new Date()
+// 				}
+// 			]
+// }
 
 app.get('/', (req,res) => {
-	res.send(database.users);
+	res.send('app working');
 })
 
 app.post('/SignIn', (req,res) => {
@@ -96,6 +96,6 @@ app.put('/Image' , (req,res) => {
 
 })
 
-app.listen(3000 , () => {
-	console.log('server running on 3000');
+app.listen(process.env.PORT || 3000 , () => {
+	console.log(`server running on ${process.env.PORT}`);
 } )
