@@ -13,10 +13,12 @@ const knex = require('knex');
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'postgres',
-    password : 'nanob99311',
-    database : 'bot-brain'
+  	connectionString: process.env.DATABASE_URL,
+  ssl: true,
+    // host : '127.0.0.1',
+    // user : 'postgres',
+    // password : 'nanob99311',
+    // database : 'bot-brain'
   }
 });
 
